@@ -1,5 +1,7 @@
 # NTT Logo - the Limaçon!
 
+![alt text](https://github.com/alexjmoore/ntt_limacon/workflows/Deploy%20to%20Firebase/badge.svg "Build status")
+
 NTT is short for Nippon Telegraph and Telephone Corporation and through its various brands it provides a range of
 telecommunications and IT services on a global basis.
 
@@ -8,7 +10,7 @@ here: https://hello.global.ntt
 
 The logo is the focus here, not only is it nice, you can see it here:
 
-![alt text](images/NTT_Horizontal_RGB.png "NTT Logo")
+![alt text](public/images/NTT_Horizontal_RGB.png "NTT Logo")
 
 But did you know that logo can be drawn using a mathematical function?
 
