@@ -20,6 +20,6 @@ The code in this repository uses p5 js to render a limaçon in the NTT style and
 
 You can find a live version of it here: https://ntt.am.cx
 
-If you want to dive in and play with the code, you can find it as a p5js sketch here: https://editor.p5js.org/alexmoore/sketches/HJsYLRMUI
+If you want to dive in and play with the code, you can find it as a p5.js sketch here: https://editor.p5js.org/alexmoore/sketches/HJsYLRMUI
 
 Lots of credit to Daniel Shiffman of The Coding Train for the inspiration, you can find his awesome tutorials here: https://thecodingtrain.com/
