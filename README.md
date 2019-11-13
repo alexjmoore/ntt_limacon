@@ -12,7 +12,7 @@ The logo is the focus here, not only is it nice, you can see it here:
 
 ![alt text](public/images/NTT_Horizontal_RGB.png "NTT Logo")
 
-But did you know that logo can be drawn using a mathematical function?
+But did you know that logo can be drawn using a mathematical equation?
 
 It is known as a limaçon or sometimes a limaçon of Pascal.  Not sure what that is? you can read more about it here: https://en.wikipedia.org/wiki/Lima%C3%A7on
 
