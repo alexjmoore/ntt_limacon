@@ -1,0 +1,10 @@
+#ntt-card {
+    position: absolute;
+    min-width: 290px;
+    margin-left: 10px;
+}
+
+#sketch-div {
+    position: absolute;
+    margin-left: 300px;
+}
