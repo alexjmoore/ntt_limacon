@@ -98,7 +98,7 @@ function slider_update() {
   staticLimacon.text("Limaçon of Pascal : r = " + limacon.b + " + " + limacon.a + " cos (θ - " + limacon.n + ")" , 10, 20);
   staticLimacon.text("a: " + limacon.a, 10, 60);
   staticLimacon.text("b: " + limacon.b, (10 + (1 * sliderSpacing)), 60);
-  staticLimacon.text("n: " + limacon.n + " (rotation)", (10 + (2 * sliderSpacing)), 60);
+  staticLimacon.text("n: " + limacon.n + " (" + Math.round(limacon.n * 180 / PI) + "° rotation)", (10 + (2 * sliderSpacing)), 60);
   staticLimacon.text("scale: " + limacon.scaleFactor, (10 + (3 * sliderSpacing)), 60);
   staticLimacon.text("weight: " + limacon.weight, (10 + (4 * sliderSpacing)), 60);
 
