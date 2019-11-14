@@ -1,7 +1,7 @@
 // good defaults for the NTT logo
 let aDEFAULT = 2.58;
 let bDEFAULT = 1;
-let nDEFAULT = 1.58;
+let nDEFAULT = 1.57; // pi/2 to rotate 90 degrees
 let scaleFactorDEFAULT = 100;
 let weightDEFAULT = 50;
 
@@ -35,10 +35,10 @@ function setup() {
   sliderA = createSlider(-10, 10, limacon.a, 0.01);
   sliderA.position(10, 25);
   sliderA.style('width', '80px');
-  sliderB = createSlider(-10, 10, limacon.b, 0.01);
+  sliderB = createSlider(-5, 5, limacon.b, 0.01);
   sliderB.position(10 + sliderSpacing, 25);
   sliderB.style('width', '80px');
-  sliderN = createSlider(0, 10, limacon.n, 0.01);
+  sliderN = createSlider(0, 6.28, limacon.n, 0.01);
   sliderN.position(10 + (2 * sliderSpacing), 25);
   sliderN.style('width', '80px');
   sliderF = createSlider(0, 300, limacon.scaleFactor, 1);
