@@ -16,7 +16,7 @@ But did you know that logo can be drawn using a mathematical equation?
 
 It is known as a limaçon or sometimes a limaçon of Pascal.  Not sure what that is? you can read more about it here: https://en.wikipedia.org/wiki/Lima%C3%A7on
 
-The code in this repository uses p5 js to render a limaçon in the NTT style and experiment with it.
+The code in this repository uses p5.js to render a limaçon in the NTT style and experiment with it.
 
 You can find a live version of it here: https://ntt.am.cx
 
