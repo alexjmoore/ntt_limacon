@@ -20,14 +20,14 @@ let staticLimacon;
 let sketchHeight = 800;
 let sketchWidth = 800;
 
-// Limaçon formaula itself (in cartesian form)
+// Limaçon formula itself (in cartesian form)
 function limacon_xy(limacon, angle) {
   var x = limacon.scaleFactor * (limacon.b + (limacon.a * cos(angle - limacon.n))) * cos(angle);
   var y = limacon.scaleFactor * (limacon.b + (limacon.a * cos(angle - limacon.n))) * sin(angle);
   return [x, y];
 }
 
-// setup p5 js
+// setup p5.js
 function setup() {
   let canvas = createCanvas(sketchWidth, sketchHeight);
   canvas.parent('sketch-div');
@@ -112,7 +112,7 @@ function slider_update() {
 
 }
 
-// primary p5 js draw routine
+// primary p5.js draw routine
 function draw() {
   // draw the static version
   background(255);
