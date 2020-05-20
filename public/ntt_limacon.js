@@ -5,6 +5,9 @@ let nDEFAULT = 1.57; // pi/2 to rotate 90 degrees
 let scaleFactorDEFAULT = 100;
 let weightDEFAULT = 50;
 
+let NTTBLUE = "#0072bc"
+let NTTDARKBLUE = "#001973"
+
 let limacon = {
   a: aDEFAULT,
   b: bDEFAULT,
@@ -91,7 +94,7 @@ function slider_update() {
   limacon.weight = sliderW.value();
 
   staticLimacon = createGraphics(sketchWidth, sketchHeight);
-  staticLimacon.stroke("#0033CC");
+  staticLimacon.stroke(NTTBLUE);
 
   // update the stats
   staticLimacon.strokeWeight(1);
@@ -116,12 +119,12 @@ function slider_update() {
 function draw() {
   // draw the static version
   background(255);
-  stroke("#0033CC");
+  stroke(NTTBLUE);
   image(staticLimacon, 0, 0);
 
   // draw the outline animation frame
   translate(width / 2, height / 4);
-  stroke("#001973");
+  stroke(NTTDARKBLUE);
   [x, y] = limacon_xy(limacon, i);
   strokeWeight(limacon.weight - 10);
   point(x, y);
