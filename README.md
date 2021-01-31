@@ -5,7 +5,7 @@
 NTT is short for Nippon Telegraph and Telephone Corporation and through its various brands it provides a range of
 telecommunications and IT services on a global basis.
 
-Within the NTT Group is NTT Limited - where I happen to work - I won't explain what they do, you can read all about them
+Within the NTT Group is NTT Limited - I won't explain what they do, you can read all about them
 here: https://hello.global.ntt
 
 The logo is the focus here, not only is it nice, you can see it here:
