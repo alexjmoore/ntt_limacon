@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting -m \"Auto deployed from Github - $GITHUB_REF:$GITHUB_SHA\" --debug
-        env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.GCP_SA_KEY }}"
+          projectId: majestic-energy-418
+          channelId: live
