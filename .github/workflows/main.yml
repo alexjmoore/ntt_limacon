@@ -4,17 +4,25 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: Deploy to Firebase
-        uses: FirebaseExtended/action-hosting-deploy@v0
+        uses: actions/checkout@v7
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_MAJESTIC_ENERGY_418 }}"
-          projectId: majestic-energy-418
-          channelId: live
+          workload_identity_provider: projects/286086729378/locations/global/workloadIdentityPools/github/providers/ntt-limacon
+          service_account: firebase-adminsdk-3edlz@majestic-energy-418.iam.gserviceaccount.com
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Deploy to Firebase Hosting
+        run: npx --yes firebase-tools@latest deploy --only hosting --project majestic-energy-418 --non-interactive
