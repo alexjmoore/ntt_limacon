@@ -1,57 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0072bc">
+    <meta name="description" content="The NTT logo is a limaçon of Pascal. Explore the equation behind it and reshape the curve in real time.">
     <title>NTT Logo - a limaçon of Pascal</title>
 
-    <!-- pull in the limacon itself -->
-    <script src="ntt_limacon.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <!-- pull in p5 JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-
-    <!-- fomantic used for some UI elegance -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.8/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.8/dist/semantic.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+    <script src="ntt_limacon.js" defer></script>
   </head>
   <body>
-    
-    <div id="sketch-div"></div>
-    <div class="ui card intro" id="ntt-card">
-      <div class="content">
-        <a class="header">The origins of the NTT logo</a>
-        <div class="description">
-          Hey! Did you know that the NTT logo is actually a limaçon of Pascal and can be expressed as a mathematical equation? Experiment with it here...
-        </div>
-      </div>
-      <div class="image">
-        <img src="images/NTT_Horizontal_RGB.png">
-      </div>
-      <div class="content">
-        <h4 class="ui sub header">What is a limaçon?</h4>
-        <div><i class="wikipedia icon"></i><a href="https://en.wikipedia.org/wiki/Lima%C3%A7on">Click here for the Wikipedia article</a></div>
-        <h4 class="ui sub header">Who is NTT?</h4>
-        <div><i class="city icon"></i><a href="https://hello.global.ntt/">Click here to learn more about NTT</a></div>
-        <h4 class="ui sub header">Where can I find the source code?</h4>
-        <div><i class="github icon"></i><a href="https://github.com/alexjmoore/ntt_limacon">Click here for the repo on github</a></div>
-        <h4 class="ui sub header">Who made this?</h4>
-        <div><i class="twitter icon"></i><a href="https://twitter.com/alexmooreish">Click here to find me on Twitter</a></div>
-        <div><i class="linkedin icon"></i><a href="https://www.linkedin.com/in/alexjmoore/">Click here to find me on LinkedIn</a></div>
-      </div>
-      <div class="extra content">
-        This site and its content is not affiliated with NTT, the NTT name and the NTT logo are &copy; NTT Limited
-      </div>
+    <div class="app">
+      <aside class="panel" aria-label="About and controls">
+        <header class="panel-header">
+          <img class="logo" src="images/NTT_Horizontal_RGB.png" alt="NTT" width="120" height="57">
+          <p class="eyebrow">Limaçon of Pascal</p>
+          <h1>The origins of the NTT logo</h1>
+          <p class="lede">The NTT logo is a limaçon of Pascal, a curve you can write as a single polar equation. Move the sliders to reshape it.</p>
+        </header>
+
+        <section class="equation-card" aria-label="Current equation">
+          <p class="equation" id="equation" aria-live="polite">r = 1.00 + 2.58 cos(θ − 1.57)</p>
+          <p class="curve-type"><span class="dot" aria-hidden="true"></span><span id="curve-type">Inner loop</span></p>
+        </section>
+
+        <section class="controls" aria-labelledby="controls-title">
+          <div class="controls-head">
+            <h2 id="controls-title">Parameters</h2>
+            <button type="button" class="reset" id="reset">Reset to NTT</button>
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <label for="a">Loop size <span class="var">a</span></label>
+              <output for="a" id="a-out">2.58</output>
+            </div>
+            <input type="range" id="a" min="-10" max="10" step="0.01" value="2.58">
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <label for="b">Offset <span class="var">b</span></label>
+              <output for="b" id="b-out">1.00</output>
+            </div>
+            <input type="range" id="b" min="-5" max="5" step="0.01" value="1">
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <label for="n">Rotation <span class="var">n</span></label>
+              <output for="n" id="n-out">1.57 · 90°</output>
+            </div>
+            <input type="range" id="n" min="0" max="6.28" step="0.01" value="1.57">
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <label for="scale">Scale</label>
+              <output for="scale" id="scale-out">100</output>
+            </div>
+            <input type="range" id="scale" min="0" max="300" step="1" value="100">
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <label for="weight">Stroke weight</label>
+              <output for="weight" id="weight-out">50</output>
+            </div>
+            <input type="range" id="weight" min="0" max="100" step="1" value="50">
+          </div>
+
+          <label class="toggle">
+            <input type="checkbox" id="construction" checked>
+            <span>Show the tracing radius</span>
+          </label>
+        </section>
+
+        <nav class="links" aria-label="Learn more">
+          <a href="https://en.wikipedia.org/wiki/Lima%C3%A7on" target="_blank" rel="noopener">
+            <span>What is a limaçon?</span><span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://hello.global.ntt/" target="_blank" rel="noopener">
+            <span>Who is NTT?</span><span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://github.com/alexjmoore/ntt_limacon" target="_blank" rel="noopener">
+            <span>Source code on GitHub</span><span aria-hidden="true">↗</span>
+          </a>
+        </nav>
+
+        <footer class="panel-footer">
+          <p>Made by Alex Moore ·
+            <a href="https://twitter.com/alexmooreish" target="_blank" rel="noopener">Twitter</a> ·
+            <a href="https://www.linkedin.com/in/alexjmoore/" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+          <p class="legal">This site is not affiliated with NTT. The NTT name and logo are &copy; NTT Limited.</p>
+        </footer>
+      </aside>
+
+      <main class="stage" aria-label="Limaçon visualisation">
+        <div id="sketch-div" class="canvas-wrap" role="img" aria-label="An animated drawing of the limaçon curve defined by the current parameters"></div>
+        <p class="stage-caption">r = b + a cos(θ − n)</p>
+      </main>
     </div>
-    
-    <!-- Firebase magic -->
+
+    <!-- Firebase analytics (only available on Firebase Hosting) -->
     <script src="/__/firebase/7.3.0/firebase-app.js"></script>
     <script src="/__/firebase/7.3.0/firebase-analytics.js"></script>
     <script src="/__/firebase/init.js"></script>
-    <script>firebase.analytics().logEvent('page_loaded');</script>
+    <script>if (window.firebase && firebase.analytics) firebase.analytics().logEvent('page_loaded');</script>
   </body>
 </html>
